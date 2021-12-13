@@ -1,0 +1,133 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GameController : MonoBehaviour
+{
+    /*ALGORITHM!
+     * 01. select colours for this game
+     * 02. start timer
+     * 03. begin game loop
+     * 04. decrement round count
+     * 05. select colour and text for this round
+     * 06. await button input
+     * 07. log result, display to player
+     * 08. check round count; if not zero, return to step 4
+     * 09. stop timer
+     * 10. display results screen, return to menu
+     */
+
+    public ColourContainer colCon;
+    private UIControllerBasic uiCon;
+    private List<Colour> colours = new List<Colour>();
+    private System.DateTime timeStart;
+    private System.TimeSpan timeDelta;
+    private Colour selection;
+    private int score;
+    //private 
+
+    void Start()
+    {
+        uiCon = FindObjectOfType<UIControllerBasic>();
+
+        BeginGame(5, 4);
+    }
+
+    public void BeginGame(int round_count, int colour_count)
+    {
+        Debug.Log("Starting");
+        //01. select colours for this game
+        colours.Clear();
+        List<int> indices = new List<int>();
+        int temp = 0;
+
+        for (int i = 0; i < colour_count; i++)
+        {
+            do 
+            {
+                //TODO: fix colour selection
+                temp++;// = Random.Range(0, colour_count);
+                if (!indices.Contains(temp))
+                {
+                    break;
+                }
+                Debug.Log("dupe " + temp);
+            } 
+            while (true);
+
+            indices.Add(temp);
+            colours.Add(colCon.colours[temp]);
+            uiCon.AddButton(colCon.colours[temp]);
+            Debug.Log(colCon.colours[temp].name + " added, index " + temp);
+        }
+        //02. start timer
+        timeStart = System.DateTime.Now;
+        score = 0;
+        //03. begin game loop
+        StartCoroutine("GameLoop", round_count);
+    }
+
+    IEnumerator GameLoop(int round_count)
+    {
+        int index_colour;
+        int index_word;
+        bool round_result;
+        do
+        {
+            Debug.Log("round " + round_count);
+            //04. decrement round count
+            round_count--;
+            selection = new Colour() { name = "none" };
+            //05.select colour and text for this round
+            index_colour = Random.Range(0, colours.Count);
+            index_word = Random.Range(0, colours.Count);
+            if (index_colour == index_word)
+            {
+                //TODO: nicer logic for overlapping random values
+                index_word++;
+                if (index_word == colours.Count)
+                    index_word = 0;
+                Debug.LogWarning("indices equal, word index set to " + index_word);
+            }
+            uiCon.UpdateQuestion(colours[index_colour].value, colours[index_word].name);
+            //06.await button input
+            while (selection.name.Equals("none"))
+            {
+                yield return new WaitForFixedUpdate();
+            }
+            //07.log result, display to player
+
+            if (selection.name.Equals(colours[index_colour].name))
+            {
+                Debug.Log("correct");
+                round_result = true;
+                score++;
+            }
+            else
+            {
+                Debug.Log("wrong");
+                round_result = false;
+            }
+
+            uiCon.ShowRoundResults(round_result);
+            yield return new WaitForSeconds(2);
+            uiCon.HideRoundResults();
+            //08. check round count; if not zero, return to step 4
+        }
+        while (round_count > 0);
+
+        //09.stop timer
+        timeDelta = System.DateTime.Now.Subtract(timeStart);
+        //10.display results screen, return to menu
+        uiCon.ShowGameResults(score, round_count, timeDelta);
+        yield return 0;
+    }
+    
+
+
+
+    public void ColourOptionSelected(Colour colour)
+    {
+        selection = colour;
+    }
+}
