@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colCon: {fileID: 11400000, guid: 941d6dc58ef6d294c8203c97c69d1f92, type: 2}
+  setCon: {fileID: 11400000, guid: 8214b1110da4a3e4f9cfec6da4048037, type: 2}
 --- !u!4 &178267131
 Transform:
   m_ObjectHideFlags: 0
