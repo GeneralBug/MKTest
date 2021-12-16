@@ -16,14 +16,16 @@ MonoBehaviour:
   - name: Red
     value: {r: 1, g: 0, b: 0, a: 1}
   - name: Blue
-    value: {r: 0, g: 0.29680824, b: 1, a: 1}
+    value: {r: 0.25157225, g: 0.41404423, b: 1, a: 1}
   - name: Green
     value: {r: 0, g: 0.6415094, b: 0.09491678, a: 1}
   - name: Purple
-    value: {r: 0.40263316, g: 0.16803133, b: 0.6037736, a: 1}
+    value: {r: 0.5405407, g: 0, b: 1, a: 1}
   - name: Pink
-    value: {r: 1, g: 0, b: 0.9575949, a: 1}
+    value: {r: 1, g: 0.40251565, b: 0.974226, a: 1}
   - name: Yellow
     value: {r: 1, g: 0.97407734, b: 0, a: 1}
   - name: Brown
     value: {r: 0.38679248, g: 0.22201236, b: 0, a: 1}
+  - name: Orange
+    value: {r: 1, g: 0.5080741, b: 0, a: 1}

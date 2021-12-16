@@ -49,14 +49,12 @@ public class UIControllerBasic : MonoBehaviour
         }
     }
 
-    public void ShowGameResults(int score, int round_count, System.TimeSpan timeDelta)
+    public void ShowGameResults(int score, int round_count, System.TimeSpan timeDelta, System.TimeSpan timeAverage)
     {
-        //TODO: figure out average time
-        //System.TimeSpan timeAverage = (int)timeDelta/round_count;
         gameParent.SetActive(false);
         resultFields[0].text = score + " / " + round_count;
-        resultFields[1].text = timeDelta.Minutes + ":" + timeDelta.Seconds;
-        //resultFields[2].text = timeAverage
+        resultFields[1].text = timeDelta.ToString("mm':'ss");
+        resultFields[2].text = timeAverage.ToString("mm':'ss");
         resultsParent.SetActive(true);
 
     }

@@ -45,8 +45,7 @@ public class GameController : MonoBehaviour
         {
             do 
             {
-                //TODO: fix colour selection
-                temp++;// = Random.Range(0, colour_count);
+                temp = Random.Range(0, colCon.colours.Length);
                 if (!indices.Contains(temp))
                 {
                     break;
@@ -72,6 +71,7 @@ public class GameController : MonoBehaviour
         int index_colour;
         int index_word;
         bool round_result;
+        int total_round_count = round_count;
         do
         {
             Debug.Log("round " + round_count);
@@ -80,15 +80,15 @@ public class GameController : MonoBehaviour
             selection = new Colour() { name = "none" };
             //05.select colour and text for this round
             index_colour = Random.Range(0, colours.Count);
-            index_word = Random.Range(0, colours.Count);
-            if (index_colour == index_word)
+            do
             {
-                //TODO: nicer logic for overlapping random values
-                index_word++;
-                if (index_word == colours.Count)
-                    index_word = 0;
-                Debug.LogWarning("indices equal, word index set to " + index_word);
+                index_word = Random.Range(0, colours.Count);
+                if (index_colour != index_word)
+                {
+                    break;
+                }
             }
+            while (true);
             uiCon.UpdateQuestion(colours[index_colour].value, colours[index_word].name);
             //06.await button input
             while (selection.name.Equals("none"))
@@ -118,8 +118,10 @@ public class GameController : MonoBehaviour
 
         //09.stop timer
         timeDelta = System.DateTime.Now.Subtract(timeStart);
+        double timeAverageDouble = timeDelta.TotalMilliseconds / total_round_count;
+        System.TimeSpan timeAverage = System.TimeSpan.FromMilliseconds(timeAverageDouble);
         //10.display results screen, return to menu
-        uiCon.ShowGameResults(score, round_count, timeDelta);
+        uiCon.ShowGameResults(score, total_round_count, timeDelta, timeAverage);
         yield return 0;
     }
     
