@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIControllerBasic : MonoBehaviour
+public class UIControllerBasic : UIController
 {
-    //TODO: plan to replace with fancier one after basic implementation is complete
-
     public GameObject gameParent;
     public GameObject resultsParent;
     public Text[] resultFields; //not very nice
@@ -15,19 +13,20 @@ public class UIControllerBasic : MonoBehaviour
     public GameObject buttonPrefab;
     public Text questionText;
     public Text roundResults;
-    public void AddButton(Colour colour)
+
+    public override void AddButton(Colour colour)
     {
         GameObject button = Instantiate(buttonPrefab, buttonParent);
         button.GetComponent<ColourOptionButton>().SetColour(colour);
     }
 
-    public void UpdateQuestion(Color value, string word)
+    public override void UpdateQuestion(Color value, string word)
     {
         questionText.color = value;
         questionText.text = word;
     }
 
-    public void ShowRoundResults(bool result)
+    public override void ShowRoundResults(bool result)
     {
         foreach(Button button in buttonParent.GetComponentsInChildren<Button>())
         {
@@ -40,7 +39,7 @@ public class UIControllerBasic : MonoBehaviour
 
     }
 
-    public void HideRoundResults()
+    public override void HideRoundResults()
     {
         roundResults.text = "";
         foreach (Button button in buttonParent.GetComponentsInChildren<Button>())
@@ -49,7 +48,7 @@ public class UIControllerBasic : MonoBehaviour
         }
     }
 
-    public void ShowGameResults(int score, int round_count, System.TimeSpan timeDelta, System.TimeSpan timeAverage)
+    public override void ShowGameResults(int score, int round_count, System.TimeSpan timeDelta, System.TimeSpan timeAverage)
     {
         gameParent.SetActive(false);
         resultFields[0].text = score + " / " + round_count;

@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
 
     public ColourContainer colCon;
     public SettingsContainer setCon;
-    private UIControllerBasic uiCon;
+    private UIController uiCon;
     private List<Colour> colours = new List<Colour>();
     private System.DateTime timeStart;
     private System.TimeSpan timeDelta;
@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        uiCon = FindObjectOfType<UIControllerBasic>();
+        uiCon = FindObjectOfType<UIController>();
         BeginGame(setCon.roundCount, setCon.colourCount);
     }
 
