@@ -57,7 +57,7 @@ public class GameController : MonoBehaviour
             indices.Add(temp);
             colours.Add(colCon.colours[temp]);
             uiCon.AddButton(colCon.colours[temp]);
-            Debug.Log(colCon.colours[temp].name + " added, index " + temp);
+            Debug.Log(colCon.colours[temp].GetName() + " added, index " + temp);
         }
         //02. start timer
         timeStart = System.DateTime.Now;
@@ -77,7 +77,7 @@ public class GameController : MonoBehaviour
             Debug.Log("round " + round_count);
             //04. decrement round count
             round_count--;
-            selection = new Colour() { name = "none" };
+            selection = new Colour("none");
             //05.select colour and text for this round
             index_colour = Random.Range(0, colours.Count);
             do
@@ -89,15 +89,15 @@ public class GameController : MonoBehaviour
                 }
             }
             while (true);
-            uiCon.UpdateQuestion(colours[index_colour].value, colours[index_word].name);
+            uiCon.UpdateQuestion(colours[index_colour].GetValue(), colours[index_word].GetName());
             //06.await button input
-            while (selection.name.Equals("none"))
+            while (selection.GetName().Equals("none"))
             {
                 yield return new WaitForFixedUpdate();
             }
             //07.log result, display to player
 
-            if (selection.name.Equals(colours[index_colour].name))
+            if (selection.GetName().Equals(colours[index_colour].GetName()))
             {
                 Debug.Log("correct");
                 round_result = true;

@@ -11,7 +11,7 @@ public class ColourOptionButton : MonoBehaviour
     public void SetColour(Colour colour)
     {
         this.colour = colour;
-        this.GetComponentInChildren<Text>().text = colour.name;
+        this.GetComponentInChildren<Text>().text = colour.GetName();
     }
 
     public void ButtonPressed()

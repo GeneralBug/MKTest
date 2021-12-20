@@ -7,8 +7,19 @@ using UnityEngine;
 [System.Serializable]
 public class Colour
 {
-    public string name;
-    public Color value;
+    [SerializeField]
+    private string name;
+    [SerializeField]
+    private Color value;
+
+    public Colour(string name)
+    {
+        this.name = name;
+        value = Color.clear;
+    }
+
+    public string GetName() { return name; }
+    public Color GetValue() { return value; }
 }
 
 [CreateAssetMenu(fileName = "Colours", menuName = "ScriptableObjects/ColourContainer", order = 1)]

@@ -14,7 +14,7 @@ public class MenuUIController : MonoBehaviour
     public void Start()
     {
         UpdateLabels();
-        title.color = colCon.colours[Random.Range(0, colCon.colours.Length)].value;
+        title.color = colCon.colours[Random.Range(0, colCon.colours.Length)].GetValue();
     }
 
     public void UpdateLabels()
