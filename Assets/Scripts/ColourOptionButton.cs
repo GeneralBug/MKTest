@@ -11,7 +11,18 @@ public class ColourOptionButton : MonoBehaviour
     public void SetColour(Colour colour)
     {
         this.colour = colour;
-        this.GetComponentInChildren<Text>().text = colour.GetName();
+        try
+        {
+            Debug.Log("looking for textmesh");
+            GetComponentInChildren<TMPro.TextMeshProUGUI>().text = colour.GetName();
+
+        }
+        catch (System.NullReferenceException)
+        {
+            Debug.Log("looking for text");
+            GetComponentInChildren<Text>().text = colour.GetName();
+        }
+
     }
 
     public void ButtonPressed()

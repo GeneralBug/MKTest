@@ -5,7 +5,14 @@ using UnityEngine.UI;
 
 public abstract class UIController : MonoBehaviour
 {
-    public abstract void AddButton(Colour colour);
+    public Transform buttonParent;
+    public GameObject buttonPrefab;
+
+    public void AddButton(Colour colour)
+    {
+        GameObject button = Instantiate(buttonPrefab, buttonParent);
+        button.GetComponent<ColourOptionButton>().SetColour(colour);
+    }
 
     public abstract void UpdateQuestion(Color value, string word);
 

@@ -9,16 +9,8 @@ public class UIControllerBasic : UIController
     public GameObject resultsParent;
     public Text[] resultFields; //not very nice
 
-    public Transform buttonParent;
-    public GameObject buttonPrefab;
     public Text questionText;
     public Text roundResults;
-
-    public override void AddButton(Colour colour)
-    {
-        GameObject button = Instantiate(buttonPrefab, buttonParent);
-        button.GetComponent<ColourOptionButton>().SetColour(colour);
-    }
 
     public override void UpdateQuestion(Color value, string word)
     {
