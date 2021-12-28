@@ -5,8 +5,11 @@ using UnityEngine.UI;
 
 public abstract class UIController : MonoBehaviour
 {
+    public GameObject gameParent;
+    public GameObject resultsParent;
     public Transform buttonParent;
     public GameObject buttonPrefab;
+    public Text[] resultFields; //not very nice
 
     public void AddButton(Colour colour)
     {

@@ -5,10 +5,6 @@ using UnityEngine.UI;
 
 public class UIControllerBasic : UIController
 {
-    public GameObject gameParent;
-    public GameObject resultsParent;
-    public Text[] resultFields; //not very nice
-
     public Text questionText;
     public Text roundResults;
 

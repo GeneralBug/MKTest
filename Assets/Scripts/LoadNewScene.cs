@@ -9,14 +9,14 @@ public class LoadNewScene : MonoBehaviour
     private bool quit;
     public void LoadScene()
     {
-        //GameObject.FindGameObjectWithTag("ScreenWipe").GetComponent<Animator>().SetTrigger("Conceal");
+        GameObject.FindGameObjectWithTag("ScreenWipe").GetComponent<Animator>().SetTrigger("Conceal");
         quit = false;
         StartCoroutine("DelayedExit");
     }
 
     public void Exit()
     {
-        //GameObject.FindGameObjectWithTag("ScreenWipe").GetComponent<Animator>().SetTrigger("Conceal");
+        GameObject.FindGameObjectWithTag("ScreenWipe").GetComponent<Animator>().SetTrigger("Conceal");
         quit = true;
         StartCoroutine("DelayedExit");
     }
@@ -26,6 +26,7 @@ public class LoadNewScene : MonoBehaviour
         yield return new WaitForSecondsRealtime(1);
         if (quit)
         {
+            Debug.LogWarning("Quit button doesn't work in editor");
             Application.Quit();
         }
         else

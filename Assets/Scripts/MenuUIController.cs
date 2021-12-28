@@ -7,14 +7,24 @@ public class MenuUIController : MonoBehaviour
 {
     public SettingsContainer setCon;
     public ColourContainer colCon;
-    public Text title;
+    public GameObject title;
     public Text roundLabel;
     public Text colourLabel;
 
     public void Start()
     {
         UpdateLabels();
-        title.color = colCon.colours[Random.Range(0, colCon.colours.Length)].GetValue();
+        try
+        {
+            Debug.Log("looking for textmesh");
+            title.GetComponent<TMPro.TextMeshPro>().color = colCon.colours[Random.Range(0, colCon.colours.Length)].GetValue();
+
+        }
+        catch (System.NullReferenceException)
+        {
+            Debug.Log("looking for text");
+            title.GetComponent<Text>().color = colCon.colours[Random.Range(0, colCon.colours.Length)].GetValue();
+        }
     }
 
     public void UpdateLabels()
