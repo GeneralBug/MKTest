@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbff4f166ff637c4c8467944ac044fc1, type: 3}
+  m_Name: Text3D
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: fd94cc62e0eb49e43bc6dee82676cc5b, type: 2}
+  Letters:
+  - character: 65
+    model: {fileID: 2207878991442122772, guid: 2c4fc1d3a41a9cb4ab010b1f13042abc, type: 3}
+  - character: 66
+    model: {fileID: 7830588300020114039, guid: 38c06d06a4b7e7d41a4c0fe7b7b844de, type: 3}
+  - character: 67
+    model: {fileID: 1032922213143885871, guid: 44dfa92d791fbd447ba22a5fb5997895, type: 3}
+  - character: 68
+    model: {fileID: 302571507590208703, guid: dc9b0a37046e2f642b568da7faafb249, type: 3}
+  - character: 69
+    model: {fileID: 6141710558600238717, guid: a3c4a03a16965e046ac5fe8283f52e76, type: 3}
+  - character: 70
+    model: {fileID: 3894719908030373489, guid: ec5933808fac11e4483ce1fb0f6c56fa, type: 3}
+  - character: 71
+    model: {fileID: 6794317040510274620, guid: bec716d44ab1bc1429552ac72e14785b, type: 3}
+  - character: 72
+    model: {fileID: 6332963385074537707, guid: 93f13a3e55776654a947b36e012adc41, type: 3}
+  - character: 73
+    model: {fileID: 3767378262699079441, guid: edd7a369349b618498081fd6978d2c09, type: 3}
+  - character: 74
+    model: {fileID: 3525862245522219429, guid: 420c859ebddb54949a869f4fe33a3c73, type: 3}
+  - character: 75
+    model: {fileID: 6719317491161187188, guid: ff5130c9f23cbc24aab7693270f32700, type: 3}
+  - character: 76
+    model: {fileID: 6710028369078388927, guid: 2eb7336891b46ea4ca81219e54fda64e, type: 3}
+  - character: 77
+    model: {fileID: 2856332463254230680, guid: b1b282fc3e50973409c0f82884cb79a3, type: 3}
+  - character: 78
+    model: {fileID: 8348320628815671206, guid: 5ed231e7b28bbd847b74758190d2bcf8, type: 3}
+  - character: 79
+    model: {fileID: 2089699720951487820, guid: 6f554667ae0a8ca46902ccdbd642bf8e, type: 3}
+  - character: 80
+    model: {fileID: 9012550723437849656, guid: 0b376626380d59447a1904ac3d3fc331, type: 3}
+  - character: 81
+    model: {fileID: 2882249301837655139, guid: 7f0149b20e000c9429f05bc1154c4724, type: 3}
+  - character: 82
+    model: {fileID: 937006452405836669, guid: c028299555e70dc428e4da386b95d4d0, type: 3}
+  - character: 83
+    model: {fileID: 2418306168034996245, guid: b0394964f233e87438d3a8fb68b61ce6, type: 3}
+  - character: 84
+    model: {fileID: 8837588833563710293, guid: dd17920fc6b80c6419ca9df7395f5c6c, type: 3}
+  - character: 85
+    model: {fileID: 1246929014026930787, guid: b128479a6ad05134faecb576f732d560, type: 3}
+  - character: 86
+    model: {fileID: 1049085893672979614, guid: 4e74efa97e3df21409551ead52a9e45b, type: 3}
+  - character: 87
+    model: {fileID: 476964495416875508, guid: b71db9f7518cdf64582492d760570e16, type: 3}
+  - character: 88
+    model: {fileID: 3913801190873524855, guid: 51a08870f49f0dc4eb8a21afd5a6076b, type: 3}
+  - character: 89
+    model: {fileID: 70362968018357357, guid: fb3d90cc37b2ca044a16ea7c4145f0ee, type: 3}
+  - character: 90
+    model: {fileID: 3537484240198226877, guid: a3b116c8781a64c47b431496aee2ae29, type: 3}
+  - character: 32
+    model: {fileID: 2389102117110329265, guid: 70ff01259ba09ce469a80eea96f9bd40, type: 3}

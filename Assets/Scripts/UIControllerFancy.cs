@@ -7,12 +7,13 @@ using UnityEngine.UI;
 
 public class UIControllerFancy : UIController
 {
-    public TextMeshPro questionText;
-    public TextMeshPro roundResults;
+    public Text3D text3D;
+    public HorizontalLayoutGroup questionText;
+    public HorizontalLayoutGroup roundResults;
     public Animator screenWipe;
     public override void HideRoundResults()
     {
-        roundResults.text = "";
+        text3D.DrawText("", roundResults);
         foreach (Button button in buttonParent.GetComponentsInChildren<Button>())
         {
             button.interactable = true;
@@ -32,17 +33,16 @@ public class UIControllerFancy : UIController
             button.interactable = false;
         }
         if (result)
-            roundResults.text = "Correct!";
+            text3D.DrawText("Correct!", roundResults);
         else
-            roundResults.text = "Incorrect!";
+            text3D.DrawText("Incorrect!", roundResults);
 
     }
 
     public override void UpdateQuestion(Color value, string word)
     {
-        //todo: particles
-        questionText.text = word;
-        questionText.color = value;
+        text3D.DrawText(word, questionText);
+        text3D.mat.color = value;
     }
 
     IEnumerator ShowGameResultsRoutine(int score, int round_count, TimeSpan timeDelta, TimeSpan timeAverage)

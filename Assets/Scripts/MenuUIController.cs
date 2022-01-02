@@ -7,6 +7,7 @@ public class MenuUIController : MonoBehaviour
 {
     public SettingsContainer setCon;
     public ColourContainer colCon;
+    public Text3D text3D;
     public GameObject title;
     public Text roundLabel;
     public Text colourLabel;
@@ -14,17 +15,8 @@ public class MenuUIController : MonoBehaviour
     public void Start()
     {
         UpdateLabels();
-        try
-        {
-            Debug.Log("looking for textmesh");
-            title.GetComponent<TMPro.TextMeshPro>().color = colCon.colours[Random.Range(0, colCon.colours.Length)].GetValue();
-
-        }
-        catch (System.NullReferenceException)
-        {
-            Debug.Log("looking for text");
-            title.GetComponent<Text>().color = colCon.colours[Random.Range(0, colCon.colours.Length)].GetValue();
-        }
+        text3D.DrawText("Stroop Test Game", title.GetComponent<HorizontalLayoutGroup>());
+        text3D.mat.color = colCon.colours[Random.Range(0, colCon.colours.Length)].GetValue();
     }
 
     public void UpdateLabels()
