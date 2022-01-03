@@ -25,7 +25,6 @@ public class GameController : MonoBehaviour
     private System.TimeSpan timeDelta;
     private Colour selection;
     private int score;
-    //private 
 
     void Start()
     {
@@ -72,6 +71,7 @@ public class GameController : MonoBehaviour
         int index_word;
         bool round_result;
         int total_round_count = round_count;
+        int previous_colour = -1;
         do
         {
             Debug.Log("round " + round_count);
@@ -79,7 +79,15 @@ public class GameController : MonoBehaviour
             round_count--;
             selection = new Colour("none");
             //05.select colour and text for this round
-            index_colour = Random.Range(0, colours.Count);
+            do
+            {
+                index_colour = Random.Range(0, colours.Count);
+                if (index_colour != previous_colour)
+                    break;
+            }
+            while (true);
+            previous_colour = index_colour;
+
             do
             {
                 index_word = Random.Range(0, colours.Count);
